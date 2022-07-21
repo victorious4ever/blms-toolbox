@@ -1,0 +1,39 @@
+import random #This just code for getting a random number
+
+def nthRoot(A,N): #This is a function
+
+
+    xPre = random.randint(1,101) % 10
+    #This just enters in a random number from 1- 9 for the acccuracy
+
+    eps = 0.001
+   # this line gives the code more accuracy
+
+    delX = 2147483647 
+    #This code will be used in our while loop as this number 214783647 is integer limit.
+
+
+
+    #This is like a pointer in c++ its just the original value of x before it gets changed.
+    xK=0.0
+
+    #As I said before this is just a loop until we reach a certain amount of accraucy
+    while (delX > eps):
+
+      #This code is the main component of the code it uses newtons method
+
+        xK = ((N - 1.0) * xPre +
+            A/pow(xPre, N-1)) /N
+        delX = abs(xK - xPre)
+        xPre = xK;
+
+    return xK #This returns the old value of x
+
+
+print("Enter in a number.")
+A = float(input()) #This gets the user input of A
+print("Now enter in the nth root of that number")
+N = float(input()) #This gets the user input of B.
+nthRootValue = nthRoot(A, N) #This just calls the function
+ 
+print("Nth root is ", nthRootValue) #This just prints the value of the Nth root
